@@ -1,13 +1,19 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from './App'
+import {Resultado} from './resultado'
 
-Vue.config.productionTip = false
+var listaIMC = [];
 
-/* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  template: '<App/>',
-  components: { App }
-})
+    el: '#app',
+    data: {
+        resultado: new Resultado(0, 0)
+    },
+    methods: {
+        calcIMC: function () {
+            this.resultado.imc = this.resultado.peso/(this.resultado.altura * this.resultado.altura);
+        }
+    }
+});
+
+//        this.total = this.peso/(this.altura * this.altura);
+
